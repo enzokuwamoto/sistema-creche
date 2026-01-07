@@ -1,6 +1,7 @@
 package repository;
 
 import model.Aluno;
+import model.Endereco;
 import service.Service;
 
 import java.util.Scanner;
@@ -8,17 +9,19 @@ import java.util.Scanner;
 public class Repository {
         public void criarObj(Service service){
             Scanner sc = new Scanner(System.in);
+            Endereco endereco1 = new Endereco("Flowers", "Gardens", "744");
+            Endereco endereco2 = new Endereco("Soccer", "Sports", "888");
             Aluno aluno1 = new Aluno();
             Aluno aluno2 = new Aluno();
 
             aluno1.setNome("Enzo Yudi");
-            aluno1.setEndereco("Flowers, 744 - Gardens");
+            aluno1.setEndereco(endereco1);
             aluno1.setDataNascimento("19/07/2023", sc);
             aluno1.setNomeResponsavel("Jorge Roberto");
             aluno1.setTelefone("(11)99999-9999");
 
             aluno2.setNome("Cleber Augusto");
-            aluno2.setEndereco("Soccer, 123 - Sports");
+            aluno2.setEndereco(endereco2);
             aluno2.setDataNascimento("22/09/2022", sc);
             aluno2.setNomeResponsavel("Maria Lucia");
             aluno2.setTelefone("(11)88888-8888");

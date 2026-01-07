@@ -1,6 +1,7 @@
 package view;
 
 import model.Aluno;
+import model.Endereco;
 
 import java.util.Scanner;
 
@@ -18,12 +19,23 @@ public class View {
         return opcao;
     }
 
-    public void adicionar(Scanner sc, Aluno aluno) {
+    public Endereco adicionar(Scanner sc, Aluno aluno) {
         boolean validado;
         System.out.println("\nDigite o nome do aluno:");
         aluno.setNome(sc.nextLine());
-        System.out.println("Digite o endereço: (Rua, número - Bairro)");
-        aluno.setEndereco(sc.nextLine());
+
+        System.out.println("Endereço.");
+        System.out.println("Digite a rua:");
+        String rua = sc.nextLine();
+        System.out.println("Digite o número:");
+        String numero = sc.nextLine();
+        System.out.println("Digite o bairro:");
+        String bairro = sc.nextLine();
+        Endereco endereco1 = new Endereco(rua, bairro, numero);
+        aluno.setEndereco(endereco1);
+
+        System.out.println("Endereço subiu correto? " + aluno.getEndereco());
+
         System.out.println("Digite a data de nascimento:");
         do {
             validado = aluno.setDataNascimento(sc.nextLine(), sc);
@@ -32,7 +44,10 @@ public class View {
         aluno.setNomeResponsavel(sc.nextLine());
         System.out.println("Digite o numero de telefone:");
         aluno.setTelefone(sc.nextLine());
+        aluno.calcularIdade();
         System.out.println("-------------------------");
         System.out.println("Aluno Cadastrado!");
+        // retornando endereço para a service.editarLista poder acessar futuramente
+        return endereco1;
     }
 }

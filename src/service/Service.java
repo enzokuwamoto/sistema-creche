@@ -1,12 +1,12 @@
 package service;
 
 import model.Aluno;
+import model.Endereco;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Comparator;
-import java.util.Collections;
 
 public class Service {
     List<Aluno> alunos = new ArrayList<>();
@@ -21,12 +21,12 @@ public class Service {
         alunos.sort(Comparator.comparing(Aluno::getNome));
         for (Aluno aluno1 : alunos) {
             System.out.print("RA: " + aluno1.getRa());
-            System.out.print("| Nome: " + aluno1.getNome());
-            System.out.print("| Endereço: " + aluno1.getEndereco());
-            System.out.print("| Data Nascimento: " + aluno1.getDataNascimento());
-            System.out.print("| Segmento: " + aluno1.getSegmento());
-            System.out.print("| Nome Responsável: " + aluno1.getNomeResponsavel());
-            System.out.print("| Telefone: " + aluno1.getTelefone() + "\n");
+            System.out.print("|Nome: " + aluno1.getNome());
+            System.out.print("|Endereço: " + aluno1.getEndereco().getEnderecoCompleto());
+            System.out.print("|Data Nascimento: " + aluno1.getDataNascimento());
+            System.out.print("|Segmento: " + aluno1.getSegmento());
+            System.out.print("|Nome Responsável: " + aluno1.getNomeResponsavel());
+            System.out.print("|Telefone: " + aluno1.getTelefone() + "\n");
         }
     }
 
@@ -36,8 +36,7 @@ public class Service {
         System.out.println("\nDigite o RA do cadastro que será atualizado:");
         int RaBusca = sc.nextInt();
         for (Aluno aluno1 : alunos) {
-            int RaAtual = aluno1.getRa();
-            if (RaAtual == RaBusca) {
+            if (aluno1.getRa() == RaBusca) {
                 do {
                     System.out.println("\nQual critério deseja alterar?");
                     System.out.println("[1] Nome");
@@ -54,8 +53,25 @@ public class Service {
                             aluno1.setNome(sc.nextLine());
                             break;
                         case 2:
-                            System.out.println("Digite o endereço para alteração:");
-                            aluno1.setEndereco(sc.nextLine());
+                            System.out.println("Digite qual parte do endereço será alterado:");
+                            System.out.println("[1] Rua");
+                            System.out.println("[2] Bairro");
+                            System.out.println("[3] Número");
+                            int opcaoAninhada = sc.nextInt();
+                            sc.nextLine();
+                            Endereco endereco = aluno1.getEndereco();
+                            if (opcaoAninhada == 1) {
+                                System.out.println("Digite a rua:");
+                                endereco.setRua(sc.nextLine());
+                            } else if (opcaoAninhada == 2) {
+                                System.out.println("Digite o bairro:");
+                                endereco.setBairro(sc.nextLine());
+                            } else if (opcaoAninhada == 3) {
+                                System.out.println("Digite o número:");
+                                endereco.setNumero(sc.nextLine());
+                            } else {
+                                System.out.println("Digite novamente:");
+                            }
                             break;
                         case 3:
                             System.out.println("Digite a data de nascimento para alteração:");
@@ -94,7 +110,7 @@ public class Service {
             int RaAtual = aluno1.getRa();
             if (RaAtual == RaBusca) {
                 alunos.remove(aluno1);
-                System.out.println("Aluno " + aluno1 + " removido.");
+                System.out.println("Aluno " + aluno1.getNome() + " removido.");
             }
         }
     }

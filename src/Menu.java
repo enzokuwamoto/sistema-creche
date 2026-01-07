@@ -1,4 +1,5 @@
 import model.Aluno;
+import model.Endereco;
 import repository.Repository;
 import service.Service;
 import view.View;
@@ -22,8 +23,7 @@ public class Menu {
             switch (opcao) {
                 case 1:
                     Aluno aluno = new Aluno();
-                    view.adicionar(sc, aluno);
-                    aluno.calcularIdade();
+                    Endereco endereco = view.adicionar(sc, aluno);
                     service.adicionarLista(aluno);
                     System.out.println(aluno.toString());
                     break;
