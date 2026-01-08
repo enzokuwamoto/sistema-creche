@@ -5,10 +5,7 @@ public class Endereco {
     private String bairro;
     private String numero;
 
-    public Endereco(String rua, String bairro, String numero) {
-        this.rua = rua;
-        this.bairro = bairro;
-        this.numero = numero;
+    public Endereco() {
     }
 
     public String getRua() {
@@ -16,7 +13,14 @@ public class Endereco {
     }
 
     public void setRua(String rua) {
-        this.rua = rua;
+        if (rua == null || rua.trim().isEmpty()) {
+            System.out.println("Digite novamente.");
+        }
+        if (!rua.matches("[A-Za-zÀ-ÿ ]+")) {
+            throw new IllegalArgumentException("Digite apenas letras válidas.");
+        } else {
+            this.rua = rua;
+        }
     }
 
     public String getBairro() {
@@ -24,6 +28,12 @@ public class Endereco {
     }
 
     public void setBairro(String bairro) {
+        if (bairro == null || bairro.trim().isEmpty()) {
+            System.out.println("O bairro não pode estar vazio.");
+        }
+        if (!bairro.matches("[A-Za-zÀ-ÿ ]+")) {
+            throw new IllegalArgumentException("O bairro contém caracteres inválidos.");
+        }
         this.bairro = bairro;
     }
 
@@ -32,10 +42,16 @@ public class Endereco {
     }
 
     public void setNumero(String numero) {
+        if (numero == null || numero.trim().isEmpty()) {
+            System.out.println("Digite novamente.");
+        }
+        if (!numero.matches("^\\d+$")) {
+            throw new IllegalArgumentException("Digite apenas números válidos.");
+        }
         this.numero = numero;
     }
 
-    public String getEnderecoCompleto(){
+    public String getEnderecoCompleto() {
         return rua + ", " + numero + " - " + bairro;
     }
 }

@@ -6,34 +6,38 @@ import service.Service;
 
 import java.util.Scanner;
 
+// preenchimento de dados - Data Seeding
 public class Repository {
         public void criarObj(Service service){
             Scanner sc = new Scanner(System.in);
-            Endereco endereco1 = new Endereco("Flowers", "Gardens", "744");
-            Endereco endereco2 = new Endereco("Soccer", "Sports", "888");
+
             Aluno aluno1 = new Aluno();
             Aluno aluno2 = new Aluno();
 
             aluno1.setNome("Enzo Yudi");
+            aluno1.setSexo('m');
+            Endereco endereco1 = new Endereco();
+            endereco1.setRua("Flowers");
+            endereco1.setNumero("999");
+            endereco1.setBairro("Gardens");
             aluno1.setEndereco(endereco1);
             aluno1.setDataNascimento("19/07/2023", sc);
-            aluno1.setNomeResponsavel("Jorge Roberto");
-            aluno1.setTelefone("(11)99999-9999");
+            aluno1.setNomeResponsavel("Kuwamoto Yano");
+            aluno1.setTelefone("(11) 99999-9999");
+
+            service.adicionarLista(aluno1);
 
             aluno2.setNome("Cleber Augusto");
+            aluno2.setSexo('m');
+            Endereco endereco2 = new Endereco();
+            endereco2.setRua("Soccer");
+            endereco2.setNumero("777");
+            endereco2.setBairro("Sports");
             aluno2.setEndereco(endereco2);
             aluno2.setDataNascimento("22/09/2022", sc);
             aluno2.setNomeResponsavel("Maria Lucia");
-            aluno2.setTelefone("(11)88888-8888");
+            aluno2.setTelefone("(11) 98888-8888");
 
-            aluno1.calcularIdade();
-            service.adicionarLista(aluno1);
-            aluno2.calcularIdade();
             service.adicionarLista(aluno2);
-
-            // por que não está listando?
-            // 22/09/2022 - data de nascimento consta como null?
-            System.out.println("toString 1: " + aluno1.toString());
-            System.out.println("toString 2: " + aluno2.toString());
         }
 }
