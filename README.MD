@@ -1,7 +1,5 @@
 # 🏫 Sistema de Creche – CRUD
 
-## 📌 Sobre o Projeto
-
 O **Sistema de Creche** é uma aplicação desenvolvida em Java com foco na implementação de um sistema CRUD (Create, Read, Update e Delete), simulando o gerenciamento de dados de uma creche.
 
 O projeto foi desenvolvido com fins acadêmicos, mas estruturado com boas práticas de organização de código, separação de responsabilidades e aplicação de conceitos sólidos de Programação Orientada a Objetos (POO).
@@ -28,3 +26,4 @@ Clone o repositório
 Abra o projeto em sua IDE <br>
 Execute a classe principal (main) <br>
 Interaja com o sistema conforme implementado
+
