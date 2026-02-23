@@ -8,8 +8,6 @@ O projeto foi desenvolvido com fins acadêmicos, mas estruturado com boas práti
 
 ## 🎯 Objetivo
 
-Este projeto teve como objetivo:
-
 - Consolidar fundamentos de Java
 - Aplicar conceitos de POO na prática
 - Estruturar um sistema com separação de camadas
@@ -26,4 +24,5 @@ Clone o repositório
 Abra o projeto em sua IDE <br>
 Execute a classe principal (main) <br>
 Interaja com o sistema conforme implementado
+
 
