@@ -25,6 +25,6 @@ Este projeto teve como objetivo:
 Clone o repositório
 - git clone https://github.com/enzokuwamoto/sistema-creche.git
 
-Abra o projeto em sua IDE
-Execute a classe principal (main)
+Abra o projeto em sua IDE <br>
+Execute a classe principal (main) <br>
 Interaja com o sistema conforme implementado
