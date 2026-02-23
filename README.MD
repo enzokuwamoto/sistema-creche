@@ -20,19 +20,11 @@ Este projeto teve como objetivo:
 
 ---
 
-## 🚀 Funcionalidades
+## ▶️ Como executar
 
-- Cadastro de registros
-- Listagem de dados
-- Atualização de informações
-- Remoção de registros
-- Busca por critérios específicos
+Clone o repositório
+- git clone https://github.com/enzokuwamoto/sistema-creche.git
 
-## ▶️ Como Executar
-
-```bash
-git clone https://github.com/enzokuwamoto/sistema-creche.git
-
-Abra o projeto em sua IDE (IntelliJ, Eclipse ou VS Code)
+Abra o projeto em sua IDE
 Execute a classe principal (main)
 Interaja com o sistema conforme implementado
